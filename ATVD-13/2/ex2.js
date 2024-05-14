@@ -10,8 +10,8 @@ function calcularSalarioLiquido(salarioBruto, descontoINSS) {
 
 function calcularFolhaPagamento() {
 
-    let nomeFuncionario = prompt("Digite o nome do funcionário:");
-    let salarioBruto = parseFloat(prompt("Digite o salário bruto do funcionário:"));
+    let nomeFuncionario = (document.getElementById('nomeFuncionario').value);
+    let salarioBruto = parseFloat(document.getElementById('salarioBruto').value);
 
     let descontoINSS = calcularINSS(salarioBruto);
 
@@ -27,7 +27,22 @@ function calcularFolhaPagamento() {
     document.getElementById('mostrarINSS').innerHTML = (`O valor do INSS foi de: ${descontoINSS.toFixed(2)}`);
     document.getElementById('mostrarSL').innerHTML = (`O valor do sal: ${salarioLiquido.toFixed(2)}`);
 }
-
 calcularFolhaPagamento();
 
-
+function calcularSalario(){
+    let salarioBruto = parseFloat(document.getElementById('salarioBruto').value);
+    
+    if(salarioBruto <= 1000.00){
+        let valorINSS = salarioBruto * 0.08;
+        let taxaINSS = '8%';
+        let salarioLiquido = salarioBruto + valorINSS;
+    }else if(salarioBruto > 1000 && salarioBruto <= 1500){
+        let valorINSS = salarioBruto * 0.085;
+        let taxaINSS = '8.5%';
+        let salarioLiquido = salarioBruto + valorINSS;
+    }else{
+        let valorINSS = salarioBruto * 0.09;
+        let taxaINSS = '9%';
+        let salarioLiquido = salarioBruto + valorINSS;
+    }
+}
