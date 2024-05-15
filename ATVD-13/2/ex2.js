@@ -44,5 +44,10 @@ function calcularSalario(){
         let valorINSS = salarioBruto * 0.09;
         let taxaINSS = '9%';
         let salarioLiquido = salarioBruto + valorINSS;
+
+        console.log(`Seu salario é de: ${salarioBruto}. E a taxa de descomto é: ${salarioLiquido}`)
+
+        document.getElementById('mostrarSB').innerHTML = (`O seu salario bruto é: ${salarioBruto.toFixed(2)}`);
+        document.getElementById('mostrarTD').innerHTML = (`O seu desconto foi de: ${salarioLiquidoLiquido.toFixed(2)}`);
     }
 }
